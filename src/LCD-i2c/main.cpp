@@ -25,12 +25,10 @@ void setup()
   lcd.begin (16,2); // for 16 x 2 LCD module
   lcd.setBacklightPin(3,POSITIVE);
   lcd.setBacklight(HIGH);
-
   lcd.home ();  // go home
+
   Serial.begin(9600);
   Serial.println(F("DHTxx test!"));
-
-  Serial.begin(9600);
 
   dht.begin();
 
@@ -39,21 +37,6 @@ void setup()
  
 void loop()
 {
-  // lcd.scrollDisplayLeft();
-  // delay(200);
-  //-----------------------
-
-  // lcd.noDisplay();
-  // delay(200);
-  // lcd.display();
-  //delay(200);
-  //-------------------------
-  // lcd.clear();
-  //lcd.setCursor(0,1); // column,row starts at 0
-  //lcd.setCursor(0,5);
-  //lcd.print("HAI..");
-  //delay(200);
-
   // Wait a few seconds between measurements.
   delay(2000);
   lcd.clear();
@@ -75,7 +58,7 @@ void loop()
     return;
   }
 
-  lcd.print(("Humidity: "));
+  lcd.print("Humidity: ");
   lcd.print(h);
   lcd.print("%");
   lcd.setCursor(0,1); // column,row starts at 0
@@ -89,6 +72,7 @@ void loop()
   } else {
     analogWrite(motorPin, 0);
   }
+  Serial.println(F("DHTxx test!"));
 }
  
  
