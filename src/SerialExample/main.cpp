@@ -1,8 +1,5 @@
 #include <Arduino.h>
 #include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
-
-LiquidCrystal_I2C lcd(0x27, 16, 2); 
 
 const byte numChars = 32;
 char receivedChars[numChars];
@@ -14,7 +11,7 @@ void recvWithStartEndMarkers() {
     char startMarker = '<';
     char endMarker = '>';
     char rc;
- 
+
     while (Serial.available() > 0 && newData == false) {
         rc = Serial.read();
 
@@ -44,9 +41,6 @@ void showNewData() {
     if (newData == true) {
         Serial.print("This just in ... ");
         Serial.println(receivedChars);
-        lcd.clear();
-        lcd.home();
-        lcd.print(receivedChars);
         newData = false;
     }
 }
@@ -54,10 +48,6 @@ void showNewData() {
 void setup()
 {
   Serial.begin(9600);
-  lcd.init();                      // initialize the lcd 
-  lcd.backlight();
-  lcd.setCursor(0,0);
-  lcd.print("Hello, world!");
 }
 
 void loop()

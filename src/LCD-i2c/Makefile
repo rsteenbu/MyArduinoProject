@@ -3,6 +3,8 @@
 ### For detailed explanations about all the available options,
 ### please refer to https://github.com/sudar/Arduino-Makefile/blob/master/arduino-mk-vars.md
 
+AVRDUDE_CONF = /etc/avrdude.conf
+
 ### PROJECT_DIR
 ### This is the path to where you have created/cloned your project
 PROJECT_DIR       = $(HOME)/working/MyArduinoProject
@@ -17,9 +19,10 @@ ARDUINO_DIR       = /usr/share/arduino
 
 ### USER_LIB_PATH
 ### Path to where the your project's libraries are stored.
-USER_LIB_PATH     :=  /usr/lib $(realpath $(PROJECT_DIR)/lib)
+USER_LIB_PATH     :=  $(realpath $(PROJECT_DIR)/lib)
 
-ARDUINO_LIBS = Wire NewLiquidCrystal DHT Adafruit_Sensor
+# ARDUINO_LIBS = Wire new-liquidcrystal
+ARDUINO_LIBS = Wire LCD_I2C
 
 ### BOARD_TAG & BOARD_SUB
 ### For Arduino IDE 1.0.x

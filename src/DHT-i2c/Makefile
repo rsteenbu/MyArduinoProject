@@ -21,7 +21,7 @@ ARDUINO_DIR       = /usr/share/arduino
 ### Path to where the your project's libraries are stored.
 USER_LIB_PATH     :=  $(realpath $(PROJECT_DIR)/lib)
 
-ARDUINO_LIBS = Wire NewLiquidCrystal DHT Adafruit_Sensor
+ARDUINO_LIBS = Wire NewLiquidCrystal DHT-sensor-library Adafruit_Sensor
 
 ### BOARD_TAG & BOARD_SUB
 ### For Arduino IDE 1.0.x
